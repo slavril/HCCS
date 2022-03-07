@@ -52,8 +52,10 @@ export class SocketService {
 
         this.socketIo = new Server(server, {
             cors: {
-                origin: "*",
-            }
+        origin: 'https://ancient-meadow-63310.herokuapp.com/',
+        methods: ["GET", "POST"],
+        credentials: true
+      }
         });
 
         this.socketIo.on(socket_observe_key.connected, (socket) => {
