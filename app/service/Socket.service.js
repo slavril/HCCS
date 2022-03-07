@@ -52,10 +52,10 @@ export class SocketService {
 
         this.socketIo = new Server(server, {
             cors: {
-        origin: '*',
-        methods: ["GET", "POST"],
-        credentials: true
-      }
+                origin: 'http://localhost',
+                allowedHeaders: ["hc-header"],
+                credentials: true
+            }
         });
 
         this.socketIo.on(socket_observe_key.connected, (socket) => {
@@ -99,7 +99,7 @@ export class SocketService {
                         }
                     }
                     else {
-                        console.log('Miner send the chain',this.minerID, this.receiveSocketId);
+                        console.log('Miner send the chain', this.minerID, this.receiveSocketId);
                         socket.to(this.minerID).emit('getChains', this.receiveSocketId)
                     }
                 }, 3000);
@@ -156,7 +156,7 @@ export class SocketService {
                 else {
                     socket.broadcast.emit('smc_return', json)
                 }
-                
+
             })
 
             socket.on('newNodeAdded', json => {
