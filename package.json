@@ -4,7 +4,7 @@
   "description": "Blockchain service",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "test": "echo \\\"Error: Have error\\\" && exit 1"
   },
   "author": "ACE",
