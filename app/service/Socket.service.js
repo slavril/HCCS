@@ -52,7 +52,7 @@ export class SocketService {
 
         this.socketIo = new Server(server, {
             cors: {
-                origin: ['http://localhost:3001', 'http://localhost:3002', 'https://slavril.github.io'],
+                origin: ['http://localhost:3001', 'http://localhost:3002', 'https://slavril.github.io', 'http://localhost:3000'],
                 allowedHeaders: ["hc-header"],
                 credentials: true
             }
