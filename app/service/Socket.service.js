@@ -111,6 +111,8 @@ export class SocketService {
                     console.log('miner assigned', data);
                     this.miners.push(data)
                 }
+
+                socket.join('miner_room')
             })
 
             // get sync from miner
@@ -161,6 +163,10 @@ export class SocketService {
 
             socket.on('newNodeAdded', json => {
                 socket.broadcast.emit('newNodeAdded', json)
+            })
+
+            socket.on('smc_all_miner', (json) => {
+                socket.to('miner_room').emit('smc', json)
             })
 
         });
